@@ -15,9 +15,7 @@ hide_fork_me = """
 """
 st.markdown(hide_fork_me, unsafe_allow_html=True)
 BRIN = "images/brin.png"
-colu1 = st.columns(1)
-with colu1:
-    st.image(BRIN, caption=None, use_column_width=True)
+st.image(BRIN, caption=None, use_container_width=True)
 selected = option_menu(
     menu_title=None,
     options = ["Beranda","Prediksi","Obrolan", "Kontak", "Lokasi"],
