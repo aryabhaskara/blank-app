@@ -104,11 +104,11 @@ if selected == "Prediksi":
     st.header("Input Prediksi")
     col1, col2 = st.columns(2)
     with col1:
-    uploaded_file = st.file_uploader("Pilih file CSV", type=["csv"])
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        st.write("📊 Data yang diupload:")
-        st.dataframe(df)
+        uploaded_file = st.file_uploader("Pilih file CSV", type=["csv"])
+        if uploaded_file is not None:
+            df = pd.read_csv(uploaded_file)
+            st.write("📊 Data yang diupload:")
+            st.dataframe(df)
         load = st.number_input("Masukan beban dalam Watt",min_value=1000, max_value=4000)
         st.write("Beban saat ini adalah", load, "Watt (1000 - 4000 Watt)")      
     with col2:
