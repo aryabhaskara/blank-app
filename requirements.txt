@@ -1,1 +1,9 @@
 streamlit
+scikit-learn
+streamlit_option_menu
+joblib
+pandas
+xgboost
+keras
+tensorflow
+bayesian-optimization
