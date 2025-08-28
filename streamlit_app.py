@@ -20,7 +20,7 @@ Axis = "images/"
 selected = option_menu(
     menu_title=None,
     options = ["Beranda","Teori","Prediksi","Obrolan", "Kontak", "Lokasi"],
-    icons = ["house","bookmark_tabs","gear","chat","envelope","pin"],
+    icons = ["house","book","gear","chat","envelope","pin"],
     menu_icon = "cast",
     default_index = 0,
     orientation = "horizontal",
@@ -59,10 +59,22 @@ if selected == "Beranda":
     """)
 if selected == "Teori":
     st.title("Teori Mass Imbalance")
-    st.markdown("""belum lagi males""")
+    st.markdown("""
+    XGBoost (XGB) adalah salah satu algoritma machine learning berbasis tree (pohon keputusan) yang sangat populer karena cepat, akurat, dan efisien. Prinsip kerjanya adalah membuat banyak pohon keputusan secara bertahap (boosting), di mana setiap pohon baru berusaha memperbaiki kesalahan dari pohon sebelumnya. Hasil akhirnya adalah gabungan dari semua pohon tersebut sehingga prediksinya menjadi lebih kuat dan akurat.
+
+XGB banyak dipakai karena:
+
+Bisa menangani data besar dengan cepat.
+
+Memberikan akurasi tinggi dibanding banyak metode lain.
+
+Dapat digunakan untuk berbagai tugas, seperti klasifikasi (misalnya menentukan ya/tidak) maupun regresi (memperkirakan angka).
+    """)
+    st.title("Teori Bayesian Optimization")
+    st.markdown("""
+    Bayesian Optimization (BO) adalah metode optimasi yang digunakan untuk mencari kombinasi hyperparameter terbaik pada model machine learning (misalnya XGB atau ANN) agar performanya maksimal. Berbeda dengan grid search atau random search yang mencoba secara menyeluruh atau acak, BO memilih percobaan berikutnya berdasarkan informasi dari percobaan sebelumnya sehingga lebih efisien. Pada penelitian ini digunakan Upper Confidence Bound (UCB) sebagai fungsi akuisisi untuk menyeimbangkan eksploitasi (memilih nilai yang sudah menjanjikan) dan eksplorasi (mencoba nilai baru), dengan dukungan Gaussian Process (GP) yang memperkirakan rata-rata (μ) dan ketidakpastian (σ). Batasan nilai setiap hyperparameter dijelaskan pada Tabel 1.
+    """)
     st.title("Teori Machine Learning - Extreme Gradient Boost")
-    st.markdown("""belum lagi males""")
-    st.title("Teori Optimasi Bayesian")
     st.markdown("""belum lagi males""")
 if selected == "Prediksi":
     st.title("Prediksi Pembelajaran Mesin")
@@ -115,6 +127,8 @@ if selected == "Lokasi":
         st.write("Kelompok Riset Bioenergi dan Energi Alternatif - Pusat Riset Konversi dan Konservasi Energi")
         st.write("Gedung Energi 625, Kawasan Puspiptek Setu Serpong, Muncul, Kec. Setu, Kota Tangerang Selatan, Banten 15314")
         st.write("https://brin.go.id/orem/pusat-riset-konversi-dan-konservasi-energi/page/kontak-pusat-riset-konversi-dan-konservasi-energi")
+        PTSEIK = "images/ptseik.png"
+        st.image(PTSEIK, caption=None, use_container_width=True)
     with col4:
         puspiptek = pd.DataFrame({
             'lat': [-6.35864],
