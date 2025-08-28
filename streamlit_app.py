@@ -16,44 +16,58 @@ hide_fork_me = """
 st.markdown(hide_fork_me, unsafe_allow_html=True)
 BRIN = "images/brin.png"
 st.image(BRIN, caption=None, use_container_width=True)
+Axis = "images/"
 selected = option_menu(
     menu_title=None,
-    options = ["Beranda","Prediksi","Obrolan", "Kontak", "Lokasi"],
-    icons = ["house","gear","chat","envelope","pin"],
+    options = ["Beranda","Teori","Prediksi","Obrolan", "Kontak", "Lokasi"],
+    icons = ["house","bookmark_tabs","gear","chat","envelope","pin"],
     menu_icon = "cast",
     default_index = 0,
     orientation = "horizontal",
 )
 if selected == "Beranda":
-    st.title("Prediksi & Optimasi Performa Mesin Diesel Menggunakan Algoritma Pembelajaran Mesin (Machine Learning)")
+    st.title("Prediksi Kondisi Mass Imbalance Pada Rotating Equipment Menggunakan Machine Learning")
 
     st.markdown("""
-    Selamat datang pada situs web ini. Situs web ini dibuat untuk melakukan prediksi performa mesin diesel menggunakan pembelajaran mesin (machine learning).  
+    Selamat datang pada situs web ini. Situs web ini dibuat untuk melakukan prediksi anomali mesin kondisi massa tidak seimbang (mass imbalance) menggunakan machine learning).  
 
-    Dataset yang digunakan untuk membangun model pembelajaran mesin ini diperoleh dari [1]. Mesin yang digunakan adalah mesin diesel 4 langkah dengan merk **Yanmar** dengan kapasitas **7.5 kW** dan bahan bakar diesel/biodiesel. Mesin tersebut digunakan sebagai sumber energi listrik (genset) dan diberikan beban listrik.  
+    Dataset yang digunakan untuk membangun model ML ini diperoleh dari [1]. Mesin yang digunakan adalah pompa dengan merk **Yanmar** dengan kapasitas **7.5 kW** dan bahan bakar diesel/biodiesel. Mesin tersebut digunakan sebagai sumber energi listrik (genset) dan diberikan beban listrik.  
 
-    Masukan data (input) yang digunakan oleh model pembelajaran mesin ini adalah:  
-    - Kecepatan (0 – 1200 rpm)  
-    - Beban (0 – 4000 Watt)  
-    - Persentase biodiesel (0 – 50%)  
-    - Suhu campuran biodiesel (26 – 60 °C)  
+    Masukan data (input) yang digunakan oleh model ML ini adalah data dari tiga akselerometer yang dipasang pada rotating equipment:  
+    - Horizontal (sumbu x)  
+    - Vertikal (sumbu y)  
+    - Aksial (sumbu z)  
+                
+    Data tersebut akan diproses dengan fitur Fast Fourier Transformation (FFT) dan menggunakan rekayasa fitur (feature engineering) terkait pemrosesan sinyal untuk ketiga sumbu tersebut, yaitu :
+    
+    - Mean 
+    - Standard Deviation
+    - Shape Factor
+    - Root Mean Square
+    - Impulse Factor
+    - Peak to Peak
+    - Kurtosis
+    - Crest Factor
+    - Skewness
+                
+    27 fitur ini (9 x 3 axis) akan digunakan sebagai input model ML. Algoritma yang digunakan adalah **Extreme Gradient Boost (XGB)** dengan optimasi Bayesian dengan Expected Improvement acquisition function.  
 
-    Algoritma ML yang digunakan dalam laman web ini adalah **Extreme Gradient Boost (XGB)** dengan optimasi.  
-
-    Luaran data (output) yang dihasilkan oleh model pembelajaran mesin ini adalah:  
-    - Torsi (Nm)  
-    - Specific Fuel Consumption (g/kWh)  
-    - Efisiensi termal (%)  
+    Output yang dihasilkan oleh machine learning model adalah kondisi mesin (rotating equipment) baik normal maupun tidak seimbang (imbalance)
 
     **Referensi:**  
-    [1] Suardi, S., Setiawan, W., Nugraha, A. M., Alamsyah, A., & Ikhwani, R. J. (2023).  
-    Evaluation of Diesel Engine Performance Using Biodiesel from Cooking Oil Waste (WCO).  
-    *Jurnal Riset Teknologi Pencegahan Pencemaran Industri, 14*(1), 29–39.  
-    https://doi.org/10.21771/jrtppi.2023.v14.no1.p29-39
+    [1] H. Ihsannur, B. T. Atmaja, Suyanto and D. Arifianto, “VBL-VA001: Lab-scale vibration analysis dataset”, Journal of Vibration Engineering & Technologies, no. 123456789. Zenodo, Surabaya, Agu 18, 2022. doi: 10.5281/zenodo.7006575.
+    [2] Atmaja, B.T., Ihsannur, H., Suyanto et al. Lab-Scale Vibration Analysis Dataset and Baseline Methods for Machinery Fault Diagnosis with Machine Learning. J. Vib. Eng. Technol. 12, 1991–2001 (2024). https://doi.org/10.1007/s42417-023-00959-9
     """)
+if selected == "Teori":
+    st.title("Teori Mass Imbalance")
+    st.markdown("""belum lagi males""")
+    st.title("Teori Machine Learning - Extreme Gradient Boost")
+    st.markdown("""belum lagi males""")
+    st.title("Teori Optimasi Bayesian")
+    st.markdown("""belum lagi males""")
 if selected == "Prediksi":
     st.title("Prediksi Pembelajaran Mesin")
-    st.markdown("Masukan nilai yang digunakan untuk memprediksi performa mesin diesel")
+    st.markdown("Masukan data dalam bentuk tabular (.csv)")
     st.header("Input Prediksi")
     col1, col2 = st.columns(2)
     with col1:
@@ -75,18 +89,20 @@ if selected == "Prediksi":
         st.text(f"Specific Fuel Consumption (SFC) mesin anda adalah: {sfc} g/kWh")
         st.text(f"Efisiensi Termal (Thermal Efficiency) mesin anda adalah: {thermal_efficiency} %")
 if selected == "Kontak":
-    st.title("Tim Riset Inovasi Indonesia Maju - Lembaga Pengelola Dana Pendidikan (RIIM-LPDP) ")
-    st.write("Kelompok Riset Pemodelan Sarana Transportasi Berkelanjutan - Pusat Riset Teknologi Transportasi")
-    st.markdown("- Nilam Sari Octaviani")
-    st.markdown("- Rizqon Fajar")
-    st.markdown("- Kurnia Fajar Adhi Sukra")
-    st.markdown("- Sigit Tri Atmaja")
-    st.markdown("- Fitra Hidiyanto")
-    st.markdown("- Raditya Hendra Pratama")
-    st.markdown("- Dhani Avianto Sugeng")
-    st.markdown("- Ardani Cesario Zuhri")
+    st.title("Tim Riset Mass Imbalance - Rumah Program Manufaktur - Organisasi Riset dan Manufaktur")
     st.write("Kelompok Riset Bioenergi dan Energi Alternatif - Pusat Riset Konversi dan Konservasi Energi")
+    st.markdown("- Frendy Rian Saputro")
+    st.markdown("- Trisno Anggoro")
+    st.markdown("- Wargiantoro Prabowo")
+    st.markdown("- Erlan Rosyadi")
+    st.markdown("- Dhani Avianto Sugeng")
+    st.markdown("- Ade Syafrinaldy")
+    st.markdown("- Bambang Muharto")
     st.markdown("- Arya Bhaskara Adiprabowo")
+    st.write("Kelompok Riset Sarana Transportasi Air- Pusat Riset Teknologi Transportasi")
+    st.markdown("- Nanda Yustina")
+    st.write("PT. Daun Biru Engineering")
+    st.markdown("- Herry Susanto")
 if selected == "Obrolan":
     with st.chat_message("ai",avatar=":material/robot:"):
         st.write("Halo! Ada yang bisa dibantu? 👋")
@@ -97,13 +113,13 @@ if selected == "Lokasi":
     col3, col4 = st.columns(2)
     with col3:
         st.title("Kontak Kami :")
-        st.write("Kelompok Riset Pemodelan Sarana Transportasi Berkelanjutan - Pusat Riset Teknologi Transportasi")
-        st.write("Gedung 230, Kawasan Puspiptek Setu Serpong, Muncul, Kec. Setu, Kota Tangerang Selatan, Banten 15314")
-        st.write("http://elsa.brin.go.id/")
+        st.write("Kelompok Riset Bioenergi dan Energi Alternatif - Pusat Riset Konversi dan Konservasi Energi")
+        st.write("Gedung Energi 625, Kawasan Puspiptek Setu Serpong, Muncul, Kec. Setu, Kota Tangerang Selatan, Banten 15314")
+        st.write("https://brin.go.id/orem/pusat-riset-konversi-dan-konservasi-energi/page/kontak-pusat-riset-konversi-dan-konservasi-energi")
     with col4:
         puspiptek = pd.DataFrame({
-            'lat': [-6.3473723],
-            'lon': [106.663]
+            'lat': [-6.35864],
+            'lon': [106.66618]
                 })
         view_state = pdk.ViewState(
             latitude=puspiptek['lat'][0],
