@@ -20,8 +20,8 @@ with colu1:
     st.image(BRIN, caption=None, use_column_width=True)
 selected = option_menu(
     menu_title=None,
-    options = ["Beranda","Optimasi","Prediksi","Obrolan", "Kontak", "Lokasi"],
-    icons = ["house","speedometer","gear","chat","envelope","pin"],
+    options = ["Beranda","Prediksi","Obrolan", "Kontak", "Lokasi"],
+    icons = ["house","gear","chat","envelope","pin"],
     menu_icon = "cast",
     default_index = 0,
     orientation = "horizontal",
@@ -39,21 +39,6 @@ if selected == "Beranda":
     st.write(
     "Luaran data (output) yang dihasilkan oleh model pembelajaran mesin ini adalah torsi (Nm), specific fuel consumption (g/kWh), dan efisiensi termal (%).")
     st.write("[1] Suardi, S., Setiawan, W., Nugraha, A. M., Alamsyah, A., & Ikhwani, R. J. (2023). Evaluation of Diesel Engine Performance Using Biodiesel from Cooking Oil Waste (WCO). Jurnal Riset Teknologi Pencegahan Pencemaran Industri, 14(1), 29–39. https://doi.org/10.21771/jrtppi.2023.v14.no1.p29-39")
-if selected == "Optimasi":
-    param_mapping = {
-    'speed': ('Kecepatan', 'rpm'),
-    'load': ('Beban', 'Watt'),
-    'bio_d': ('Persentase Campuran Biodiesel', '%'),
-    'bio_bt': ('Temperatur Campuran Biodiesel', 'deg C')
-        }
-    if st.button('Optimasi!'):
-        st.write("Menjalankan Optimasi Bayesian. Harap tunggu...")
-        best_params, best_value = run_optimization()
-        st.write(f"Objective Value terbaik: {best_value}")
-        st.write("Parameter mesin terbaik anda adalah:")
-        for param, value in best_params.items():
-            name, unit = param_mapping.get(param, (param, ''))
-            st.write(f"{name}: {value:.2f} {unit}")
 if selected == "Prediksi":
     st.title("Prediksi Pembelajaran Mesin")
     st.markdown("Masukan nilai yang digunakan untuk memprediksi performa mesin diesel")
