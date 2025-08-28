@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from prediction import predict
-#from optime import run_optimization
+#from prediction import predict
 from streamlit_option_menu import option_menu
 import pandas as pd
 import pydeck as pdk
@@ -15,14 +14,10 @@ hide_fork_me = """
     </style>
 """
 st.markdown(hide_fork_me, unsafe_allow_html=True)
-
-LPDP = "images/lpdp.png"#https://lpdp.kemenkeu.go.id/
 BRIN = "images/brin.png"
-colu1, colu2 = st.columns(2)
+colu1 = st.columns(1)
 with colu1:
     st.image(BRIN, caption=None, use_column_width=True)
-with colu2:
-    st.image(LPDP, caption=None, use_column_width=True)
 selected = option_menu(
     menu_title=None,
     options = ["Beranda","Optimasi","Prediksi","Obrolan", "Kontak", "Lokasi"],
