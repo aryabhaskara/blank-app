@@ -26,17 +26,31 @@ selected = option_menu(
 )
 if selected == "Beranda":
     st.title("Prediksi & Optimasi Performa Mesin Diesel Menggunakan Algoritma Pembelajaran Mesin (Machine Learning)")
-    st.write(
-    "Selamat datang pada situs web ini. Situs web ini dibuat untuk melakukan prediksi performa mesin diesel menggunakan pembelajaran mesin (machine learning).")
-    st.write(
-    "Dataset yang digunakan untuk membangun model pembelajaran mesin ini diperoleh dari [1]. Mesin yang digunakan adalah mesin diesel 4 langkah dengan merk Yanmar dengan kapasitas 7.5 kW dan bahan bakar diesel/biodiesel. Mesin tersebut digunakan sebagai sumber energi listrik (genset) dan diberikan beban listrik")
-    st.write(
-    "Masukan data (input) yang digunakan oleh model pembelajaran mesin ini adalah kecepatan (0 - 1200 rpm), beban (0 - 4000 Watt), persentase biodiesel (0 - 50%), dan suhu campuran biodiesel (26 - 60 oC).")
-    st.write(
-    "Algoritma ML yang digunakan dalam laman web ini adalah Extreme Gradient Boost (XGB) dengan optimasi")
-    st.write(
-    "Luaran data (output) yang dihasilkan oleh model pembelajaran mesin ini adalah torsi (Nm), specific fuel consumption (g/kWh), dan efisiensi termal (%).")
-    st.write("[1] Suardi, S., Setiawan, W., Nugraha, A. M., Alamsyah, A., & Ikhwani, R. J. (2023). Evaluation of Diesel Engine Performance Using Biodiesel from Cooking Oil Waste (WCO). Jurnal Riset Teknologi Pencegahan Pencemaran Industri, 14(1), 29–39. https://doi.org/10.21771/jrtppi.2023.v14.no1.p29-39")
+
+    st.markdown("""
+    Selamat datang pada situs web ini. Situs web ini dibuat untuk melakukan prediksi performa mesin diesel menggunakan pembelajaran mesin (machine learning).  
+
+    Dataset yang digunakan untuk membangun model pembelajaran mesin ini diperoleh dari [1]. Mesin yang digunakan adalah mesin diesel 4 langkah dengan merk **Yanmar** dengan kapasitas **7.5 kW** dan bahan bakar diesel/biodiesel. Mesin tersebut digunakan sebagai sumber energi listrik (genset) dan diberikan beban listrik.  
+
+    Masukan data (input) yang digunakan oleh model pembelajaran mesin ini adalah:  
+    - Kecepatan (0 – 1200 rpm)  
+    - Beban (0 – 4000 Watt)  
+    - Persentase biodiesel (0 – 50%)  
+    - Suhu campuran biodiesel (26 – 60 °C)  
+
+    Algoritma ML yang digunakan dalam laman web ini adalah **Extreme Gradient Boost (XGB)** dengan optimasi.  
+
+    Luaran data (output) yang dihasilkan oleh model pembelajaran mesin ini adalah:  
+    - Torsi (Nm)  
+    - Specific Fuel Consumption (g/kWh)  
+    - Efisiensi termal (%)  
+
+    **Referensi:**  
+    [1] Suardi, S., Setiawan, W., Nugraha, A. M., Alamsyah, A., & Ikhwani, R. J. (2023).  
+    Evaluation of Diesel Engine Performance Using Biodiesel from Cooking Oil Waste (WCO).  
+    *Jurnal Riset Teknologi Pencegahan Pencemaran Industri, 14*(1), 29–39.  
+    https://doi.org/10.21771/jrtppi.2023.v14.no1.p29-39
+    """)
 if selected == "Prediksi":
     st.title("Prediksi Pembelajaran Mesin")
     st.markdown("Masukan nilai yang digunakan untuk memprediksi performa mesin diesel")
