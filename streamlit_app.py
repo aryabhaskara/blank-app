@@ -51,7 +51,7 @@ if selected == "Beranda":
                 
     27 fitur ini (9 x 3 axis) akan digunakan sebagai input model ML. Algoritma yang digunakan adalah **Extreme Gradient Boost (XGB)** dengan optimasi Bayesian dengan Expected Improvement acquisition function.  
 
-    Output yang dihasilkan oleh machine learning model adalah kondisi mesin (rotating equipment) baik normal maupun tidak seimbang (imbalance)
+    Output yang dihasilkan oleh machine learning model adalah kondisi mesin (rotating equipment) baik normal maupun tidak seimbang (imbalance).
 
     **Referensi:**  
     [1] H. Ihsannur, B. T. Atmaja, Suyanto and D. Arifianto, “VBL-VA001: Lab-scale vibration analysis dataset”, Journal of Vibration Engineering & Technologies, no. 123456789. Zenodo, Surabaya, Agu 18, 2022. doi: 10.5281/zenodo.7006575.
@@ -67,23 +67,17 @@ if selected == "Teori":
 
 Penyebab umum imbalance antara lain:
 
-Adanya kotoran atau material menempel pada rotor.
-
-Keausan atau kerusakan pada bagian tertentu.
-
-Cacat manufaktur sehingga bentuknya tidak simetris.
-
-Pemasangan komponen yang tidak presisi.
+- Adanya kotoran atau material menempel pada rotor.
+- Keausan atau kerusakan pada bagian tertentu.
+- Cacat manufaktur sehingga bentuknya tidak simetris.
+- Pemasangan komponen yang tidak presisi.
 
 Dampak mass imbalance:
-
-Meningkatkan getaran dan kebisingan.
-
-Mempercepat keausan bantalan (bearing) dan poros.
-
-Menurunkan efisiensi dan umur pakai mesin.
-
-Untuk mengatasinya biasanya dilakukan balancing, yaitu menambahkan atau mengurangi massa pada bagian tertentu agar distribusinya kembali seimbang.
+- Meningkatkan getaran dan kebisingan.
+- Mempercepat keausan bantalan (bearing) dan poros.
+- Menurunkan efisiensi dan umur pakai mesin.
+- Untuk mengatasinya biasanya dilakukan balancing, yaitu menambahkan atau mengurangi massa pada bagian tertentu agar distribusinya kembali seimbang.
+                
     """)
     st.title("Teori Bayesian Optimization")
     st.markdown("""
@@ -95,15 +89,10 @@ Untuk mengatasinya biasanya dilakukan balancing, yaitu menambahkan atau menguran
     st.markdown("""
 
     Extreme Gradient Boost (XGB) adalah salah satu algoritma machine learning berbasis tree (pohon keputusan) yang sangat populer karena cepat, akurat, dan efisien. Prinsip kerjanya adalah membuat banyak pohon keputusan secara bertahap (boosting), di mana setiap pohon baru berusaha memperbaiki kesalahan dari pohon sebelumnya. Hasil akhirnya adalah gabungan dari semua pohon tersebut sehingga prediksinya menjadi lebih kuat dan akurat.
-
     XGB banyak dipakai karena:
-
-    Bisa menangani data besar dengan cepat.
-
-    Memberikan akurasi tinggi dibanding banyak metode lain.
-
-    Dapat digunakan untuk berbagai tugas, seperti klasifikasi (misalnya menentukan ya/tidak) maupun regresi (memperkirakan angka).
-    
+    - Bisa menangani data besar dengan cepat.
+    - Memberikan akurasi tinggi dibanding banyak metode lain.
+    - Dapat digunakan untuk berbagai tugas, seperti klasifikasi (misalnya menentukan ya/tidak) maupun regresi (memperkirakan angka).
     """)
     XGB = "images/xgb.png"
     st.image(XGB, caption="Diagram XGB", use_container_width=True)
