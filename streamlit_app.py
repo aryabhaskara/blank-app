@@ -57,7 +57,7 @@ if selected == "Beranda":
     [1] H. Ihsannur, B. T. Atmaja, Suyanto and D. Arifianto, “VBL-VA001: Lab-scale vibration analysis dataset”, Journal of Vibration Engineering & Technologies, no. 123456789. Zenodo, Surabaya, Agu 18, 2022. doi: 10.5281/zenodo.7006575.
     [2] Atmaja, B.T., Ihsannur, H., Suyanto et al. Lab-Scale Vibration Analysis Dataset and Baseline Methods for Machinery Fault Diagnosis with Machine Learning. J. Vib. Eng. Technol. 12, 1991–2001 (2024). https://doi.org/10.1007/s42417-023-00959-9
     """)
-if selected == "Framework"
+if selected == "Framework":
     FW = "images/framework.png"
     st.image(FW, caption="Framework dalam Web ini", use_container_width=True)
 if selected == "Teori":
