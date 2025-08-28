@@ -19,8 +19,8 @@ st.image(BRIN, caption=None, use_container_width=True)
 Axis = "images/"
 selected = option_menu(
     menu_title=None,
-    options = ["Beranda","Framework","Teori","Prediksi","Obrolan", "Kontak", "Lokasi"],
-    icons = ["house","window","book","gear","chat","envelope","pin"],
+    options = ["Beranda","Framework","Teori","Eksperimen","Prediksi","Obrolan", "Kontak", "Lokasi"],
+    icons = ["house","window","book","glass","gear","chat","envelope","pin"],
     menu_icon = "cast",
     default_index = 0,
     orientation = "horizontal",
@@ -53,6 +53,8 @@ if selected == "Beranda":
 
     Output yang dihasilkan oleh machine learning model adalah kondisi mesin (rotating equipment) baik normal maupun tidak seimbang (imbalance).
 
+    Program ini diselenggarakan dalam kegiatan Rumah Program Manufaktur - Organisasi Riset Energi dan Manufaktur 2025 dan bekerjasama dengan PT. Daun Biru Engineering.
+    
     **Referensi:**  
     [1] H. Ihsannur, B. T. Atmaja, Suyanto and D. Arifianto, “VBL-VA001: Lab-scale vibration analysis dataset”, Journal of Vibration Engineering & Technologies, no. 123456789. Zenodo, Surabaya, Agu 18, 2022. doi: 10.5281/zenodo.7006575.
     [2] Atmaja, B.T., Ihsannur, H., Suyanto et al. Lab-Scale Vibration Analysis Dataset and Baseline Methods for Machinery Fault Diagnosis with Machine Learning. J. Vib. Eng. Technol. 12, 1991–2001 (2024). https://doi.org/10.1007/s42417-023-00959-9
@@ -148,7 +150,7 @@ if selected == "Lokasi":
         st.write("Gedung Energi 625, Kawasan Puspiptek Setu Serpong, Muncul, Kec. Setu, Kota Tangerang Selatan, Banten 15314")
         st.write("https://brin.go.id/orem/pusat-riset-konversi-dan-konservasi-energi/page/kontak-pusat-riset-konversi-dan-konservasi-energi")
         PTSEIK = "images/ptseik.jpeg"
-        st.image(PTSEIK, caption=None, use_container_width=True)
+        st.image(PTSEIK, caption="Kantor PRKKE-BRIN", use_container_width=True)
     with col4:
         puspiptek = pd.DataFrame({
             'lat': [-6.35864],
