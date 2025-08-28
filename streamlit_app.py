@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from prediction import predict
-from optime import run_optimization
+#from optime import run_optimization
 from streamlit_option_menu import option_menu
 import pandas as pd
 import pydeck as pdk
