@@ -31,15 +31,14 @@ if selected == "Beranda":
     st.markdown("""
     Selamat datang pada situs web ini. Situs web ini dibuat untuk melakukan prediksi anomali mesin kondisi massa tidak seimbang (mass imbalance) menggunakan machine learning).  
 
-    Dataset yang digunakan untuk membangun model ML ini diperoleh dari [1]. Mesin yang digunakan adalah pompa dengan merk **Yanmar** dengan kapasitas **7.5 kW** dan bahan bakar diesel/biodiesel. Mesin tersebut digunakan sebagai sumber energi listrik (genset) dan diberikan beban listrik.  
+    Dataset yang digunakan untuk membangun model ML ini diperoleh dari [1]. Mesin yang digunakan adalah pompa dengan merk Panasonic GP–129JXK dengan kecepatan 3000 rpm.  
 
-    Masukan data (input) yang digunakan oleh model ML ini adalah data dari tiga akselerometer yang dipasang pada rotating equipment:  
+    Data (input) yang dibutuhkan untuk deteksi mass imbalance adalah data dari tiga akselerometer yang dipasang pada rotating equipment:  
     - Horizontal (sumbu x)  
     - Vertikal (sumbu y)  
     - Aksial (sumbu z)  
                 
     Data tersebut akan diproses dengan fitur Fast Fourier Transformation (FFT) dan menggunakan rekayasa fitur (feature engineering) terkait pemrosesan sinyal untuk ketiga sumbu tersebut, yaitu :
-    
     - Mean 
     - Standard Deviation
     - Shape Factor
