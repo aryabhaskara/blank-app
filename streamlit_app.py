@@ -104,8 +104,11 @@ if selected == "Prediksi":
     st.header("Input Prediksi")
     col1, col2 = st.columns(2)
     with col1:
-        speed = st.number_input("Masukan kecepatan mesin dalam rpm",min_value=800, max_value=1200)
-        st.write("Kecepatan mesin saat ini adalah", speed, "rpm (800 - 1200 rpm)") 
+    uploaded_file = st.file_uploader("Pilih file CSV", type=["csv"])
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+        st.write("📊 Data yang diupload:")
+        st.dataframe(df)
         load = st.number_input("Masukan beban dalam Watt",min_value=1000, max_value=4000)
         st.write("Beban saat ini adalah", load, "Watt (1000 - 4000 Watt)")      
     with col2:
@@ -150,7 +153,7 @@ if selected == "Lokasi":
         st.write("Gedung Energi 625, Kawasan Puspiptek Setu Serpong, Muncul, Kec. Setu, Kota Tangerang Selatan, Banten 15314")
         st.write("https://brin.go.id/orem/pusat-riset-konversi-dan-konservasi-energi/page/kontak-pusat-riset-konversi-dan-konservasi-energi")
         PTSEIK = "images/ptseik.jpeg"
-        st.image(PTSEIK, caption="Kantor PRKKE-BRIN", use_container_width=True)
+        st.image(PTSEIK, caption="Laboratorium PRKKE-BRIN", use_container_width=True)
     with col4:
         puspiptek = pd.DataFrame({
             'lat': [-6.35864],
