@@ -59,7 +59,7 @@ if selected == "Beranda":
     """)
 if selected == "Framework":
     FW = "images/framework.png"
-    st.image(FW, caption="Framework dalam Web ini", use_container_width=True)
+    st.image(FW, caption="Framework Machine Learning", use_container_width=True)
 if selected == "Teori":
     st.title("Teori Mass Imbalance")
     st.markdown("""
@@ -90,7 +90,7 @@ Untuk mengatasinya biasanya dilakukan balancing, yaitu menambahkan atau menguran
     Bayesian Optimization (BO) adalah metode optimasi yang digunakan untuk mencari kombinasi hyperparameter terbaik pada model machine learning (misalnya XGB atau ANN) agar performanya maksimal. Berbeda dengan grid search atau random search yang mencoba secara menyeluruh atau acak, BO memilih percobaan berikutnya berdasarkan informasi dari percobaan sebelumnya sehingga lebih efisien. Pada penelitian ini digunakan Upper Confidence Bound (UCB) sebagai fungsi akuisisi untuk menyeimbangkan eksploitasi (memilih nilai yang sudah menjanjikan) dan eksplorasi (mencoba nilai baru), dengan dukungan Gaussian Process (GP) yang memperkirakan rata-rata (μ) dan ketidakpastian (σ). Batasan nilai setiap hyperparameter dijelaskan pada Tabel 1.
     """)
     BO = "images/bo.png"
-    st.image(BO, caption="Bayesian Optimisation Flowchart", use_container_width=True)
+    st.image(BO, caption="Diagram Alir Bayesian Optimisation", use_container_width=True)
     st.title("Teori Machine Learning - Extreme Gradient Boost")
     st.markdown("""
 
@@ -105,6 +105,8 @@ Untuk mengatasinya biasanya dilakukan balancing, yaitu menambahkan atau menguran
     Dapat digunakan untuk berbagai tugas, seperti klasifikasi (misalnya menentukan ya/tidak) maupun regresi (memperkirakan angka).
     
     """)
+    XGB = "images/xgb.png"
+    st.image(XGB, caption="Diagram XGB", use_container_width=True)
 if selected == "Prediksi":
     st.title("Prediksi Pembelajaran Mesin")
     st.markdown("Masukan data dalam bentuk tabular (.csv)")
