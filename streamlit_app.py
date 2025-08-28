@@ -19,8 +19,8 @@ st.image(BRIN, caption=None, use_container_width=True)
 Axis = "images/"
 selected = option_menu(
     menu_title=None,
-    options = ["Beranda","Teori","Prediksi","Obrolan", "Kontak", "Lokasi"],
-    icons = ["house","book","gear","chat","envelope","pin"],
+    options = ["Beranda","Framework","Teori","Prediksi","Obrolan", "Kontak", "Lokasi"],
+    icons = ["house","window","book","gear","chat","envelope","pin"],
     menu_icon = "cast",
     default_index = 0,
     orientation = "horizontal",
@@ -57,25 +57,54 @@ if selected == "Beranda":
     [1] H. Ihsannur, B. T. Atmaja, Suyanto and D. Arifianto, “VBL-VA001: Lab-scale vibration analysis dataset”, Journal of Vibration Engineering & Technologies, no. 123456789. Zenodo, Surabaya, Agu 18, 2022. doi: 10.5281/zenodo.7006575.
     [2] Atmaja, B.T., Ihsannur, H., Suyanto et al. Lab-Scale Vibration Analysis Dataset and Baseline Methods for Machinery Fault Diagnosis with Machine Learning. J. Vib. Eng. Technol. 12, 1991–2001 (2024). https://doi.org/10.1007/s42417-023-00959-9
     """)
+if selected == "Framework"
+    FW = "images/framework.png"
+    st.image(FW, caption="Framework dalam Web ini", use_container_width=True)
 if selected == "Teori":
     st.title("Teori Mass Imbalance")
     st.markdown("""
-    XGBoost (XGB) adalah salah satu algoritma machine learning berbasis tree (pohon keputusan) yang sangat populer karena cepat, akurat, dan efisien. Prinsip kerjanya adalah membuat banyak pohon keputusan secara bertahap (boosting), di mana setiap pohon baru berusaha memperbaiki kesalahan dari pohon sebelumnya. Hasil akhirnya adalah gabungan dari semua pohon tersebut sehingga prediksinya menjadi lebih kuat dan akurat.
+    Mass imbalance pada rotating equipment (peralatan berputar, misalnya rotor, kipas, turbin, atau pompa) adalah kondisi ketika massa tidak terdistribusi merata di sekitar sumbu putar. Akibatnya, saat peralatan berputar, timbul gaya sentrifugal yang tidak seimbang sehingga menghasilkan getaran berlebih.
 
-XGB banyak dipakai karena:
+Penyebab umum imbalance antara lain:
 
-Bisa menangani data besar dengan cepat.
+Adanya kotoran atau material menempel pada rotor.
 
-Memberikan akurasi tinggi dibanding banyak metode lain.
+Keausan atau kerusakan pada bagian tertentu.
 
-Dapat digunakan untuk berbagai tugas, seperti klasifikasi (misalnya menentukan ya/tidak) maupun regresi (memperkirakan angka).
+Cacat manufaktur sehingga bentuknya tidak simetris.
+
+Pemasangan komponen yang tidak presisi.
+
+Dampak mass imbalance:
+
+Meningkatkan getaran dan kebisingan.
+
+Mempercepat keausan bantalan (bearing) dan poros.
+
+Menurunkan efisiensi dan umur pakai mesin.
+
+Untuk mengatasinya biasanya dilakukan balancing, yaitu menambahkan atau mengurangi massa pada bagian tertentu agar distribusinya kembali seimbang.
     """)
     st.title("Teori Bayesian Optimization")
     st.markdown("""
     Bayesian Optimization (BO) adalah metode optimasi yang digunakan untuk mencari kombinasi hyperparameter terbaik pada model machine learning (misalnya XGB atau ANN) agar performanya maksimal. Berbeda dengan grid search atau random search yang mencoba secara menyeluruh atau acak, BO memilih percobaan berikutnya berdasarkan informasi dari percobaan sebelumnya sehingga lebih efisien. Pada penelitian ini digunakan Upper Confidence Bound (UCB) sebagai fungsi akuisisi untuk menyeimbangkan eksploitasi (memilih nilai yang sudah menjanjikan) dan eksplorasi (mencoba nilai baru), dengan dukungan Gaussian Process (GP) yang memperkirakan rata-rata (μ) dan ketidakpastian (σ). Batasan nilai setiap hyperparameter dijelaskan pada Tabel 1.
     """)
+    BO = "images/bo.png"
+    st.image(BO, caption="Bayesian Optimisation Flowchart", use_container_width=True)
     st.title("Teori Machine Learning - Extreme Gradient Boost")
-    st.markdown("""belum lagi males""")
+    st.markdown("""
+
+    Extreme Gradient Boost (XGB) adalah salah satu algoritma machine learning berbasis tree (pohon keputusan) yang sangat populer karena cepat, akurat, dan efisien. Prinsip kerjanya adalah membuat banyak pohon keputusan secara bertahap (boosting), di mana setiap pohon baru berusaha memperbaiki kesalahan dari pohon sebelumnya. Hasil akhirnya adalah gabungan dari semua pohon tersebut sehingga prediksinya menjadi lebih kuat dan akurat.
+
+    XGB banyak dipakai karena:
+
+    Bisa menangani data besar dengan cepat.
+
+    Memberikan akurasi tinggi dibanding banyak metode lain.
+
+    Dapat digunakan untuk berbagai tugas, seperti klasifikasi (misalnya menentukan ya/tidak) maupun regresi (memperkirakan angka).
+    
+    """)
 if selected == "Prediksi":
     st.title("Prediksi Pembelajaran Mesin")
     st.markdown("Masukan data dalam bentuk tabular (.csv)")
@@ -127,7 +156,7 @@ if selected == "Lokasi":
         st.write("Kelompok Riset Bioenergi dan Energi Alternatif - Pusat Riset Konversi dan Konservasi Energi")
         st.write("Gedung Energi 625, Kawasan Puspiptek Setu Serpong, Muncul, Kec. Setu, Kota Tangerang Selatan, Banten 15314")
         st.write("https://brin.go.id/orem/pusat-riset-konversi-dan-konservasi-energi/page/kontak-pusat-riset-konversi-dan-konservasi-energi")
-        PTSEIK = "images/ptseik.png"
+        PTSEIK = "images/ptseik.jpeg"
         st.image(PTSEIK, caption=None, use_container_width=True)
     with col4:
         puspiptek = pd.DataFrame({
