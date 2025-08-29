@@ -5,3 +5,7 @@ joblib
 pandas
 xgboost
 bayesian-optimization
+gspread
+gspread_dataframe
+oauth2client
+scipy

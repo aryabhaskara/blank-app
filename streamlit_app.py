@@ -18,14 +18,15 @@ st.markdown(hide_fork_me, unsafe_allow_html=True)
 BRIN = "images/brin.png"
 st.image(BRIN, caption=None, use_container_width=True)
 Axis = "images/"
-selected = option_menu(
-    menu_title=None,
-    options = ["Beranda","Framework","Teori","Eksperimen","Prediksi","Obrolan", "Kontak", "Lokasi"],
-    icons = ["house","window","book","pencil","gear","chat","envelope","pin"],
-    menu_icon = "cast",
-    default_index = 0,
-    orientation = "horizontal",
-)
+with st.sidebar:
+    selected = option_menu(
+        menu_title="Menu Utama",  # judul sidebar
+        options=["Beranda","Framework","Teori","Eksperimen","Prediksi","Obrolan","Kontak","Lokasi"],
+        icons=["house","window","book","pencil","gear","chat","envelope","pin"],
+        menu_icon="cast",
+        default_index=0,
+        orientation="vertical",  # sidebar selalu vertical
+    )
 if selected == "Beranda":
     st.title("Prediksi Kondisi Mass Imbalance Pada Rotating Equipment Menggunakan Machine Learning")
 
@@ -118,7 +119,7 @@ if selected == "Prediksi":
             file_name=csv_filename,
             mime="text/csv"
         )
-    
+
 if selected == "Kontak":
     st.title("Tim Riset Mass Imbalance - Rumah Program Manufaktur - Organisasi Riset dan Manufaktur")
     st.write("Kelompok Riset Bioenergi dan Energi Alternatif - Pusat Riset Konversi dan Konservasi Energi")
