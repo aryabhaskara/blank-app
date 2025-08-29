@@ -5,6 +5,7 @@ import numpy as np
 from streamlit_option_menu import option_menu
 import pandas as pd
 import pydeck as pdk
+from txt2csv import txt2csv
 
 hide_fork_me = """
     <style>
@@ -20,7 +21,7 @@ Axis = "images/"
 selected = option_menu(
     menu_title=None,
     options = ["Beranda","Framework","Teori","Eksperimen","Prediksi","Obrolan", "Kontak", "Lokasi"],
-    icons = ["house","window","book","glass","gear","chat","envelope","pin"],
+    icons = ["house","window","book","pencil","gear","chat","envelope","pin"],
     menu_icon = "cast",
     default_index = 0,
     orientation = "horizontal",
@@ -99,31 +100,25 @@ Dampak mass imbalance:
     XGB = "images/xgb.png"
     st.image(XGB, caption="Diagram XGB", use_container_width=True)
 if selected == "Prediksi":
-    st.title("Prediksi Pembelajaran Mesin")
-    st.markdown("Masukan data dalam bentuk tabular (.csv)")
-    st.header("Input Prediksi")
-    col1, col2 = st.columns(2)
-    with col1:
-        uploaded_file = st.file_uploader("Pilih file CSV", type=["csv"])
-        if uploaded_file is not None:
-            df = pd.read_csv(uploaded_file)
+    st.title("Prediksi Kondisi Mesin")
+    st.markdown("Masukan data dalam bentuk tabular (.csv/.txt)")
+    uploaded = st.file_uploader("Pilih file CSV atau TXT", type=["csv", "txt"])
+    if uploaded is not None:
+        if uploaded.name.endswith(".txt"):
+            df, csv_filename = txt2csv(uploaded)
+        else:
+            df = pd.read_csv(uploaded)
+        if df is not None:
             st.write("📊 Data yang diupload:")
             st.dataframe(df)
-        load = st.number_input("Masukan beban dalam Watt",min_value=1000, max_value=4000)
-        st.write("Beban saat ini adalah", load, "Watt (1000 - 4000 Watt)")      
-    with col2:
-        bio_d = st.number_input("Masukan persentase biodiesel dalam %",min_value=0, max_value=50)
-        st.write("Persentase biodiesel adalah", bio_d, "% (0 - 50%)")
-        bio_bt = st.number_input("Masukan temperatur campuran biodiesel dalam derajat Celcius",min_value=26, max_value=60)
-        st.write("Temperatur campuran biodiesel saat ini adalah", bio_bt, "degC (26 - 60 degC)")  
-    if st.button("Prediksi!"):
-        result = predict(np.array([[speed, load, bio_d, bio_bt]]))
-        torque = round(result[0].item(), 4)
-        sfc = round(result[1].item(), 4)
-        thermal_efficiency = round(result[2].item(), 4)
-        st.text(f"Torsi mesin anda adalah: {torque} Nm")
-        st.text(f"Specific Fuel Consumption (SFC) mesin anda adalah: {sfc} g/kWh")
-        st.text(f"Efisiensi Termal (Thermal Efficiency) mesin anda adalah: {thermal_efficiency} %")
+        csv_data = df.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="💾 Download sebagai CSV",
+            data=csv_data,
+            file_name=csv_filename,
+            mime="text/csv"
+        )
+    
 if selected == "Kontak":
     st.title("Tim Riset Mass Imbalance - Rumah Program Manufaktur - Organisasi Riset dan Manufaktur")
     st.write("Kelompok Riset Bioenergi dan Energi Alternatif - Pusat Riset Konversi dan Konservasi Energi")
