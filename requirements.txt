@@ -9,3 +9,4 @@ gspread
 gspread_dataframe
 oauth2client
 scipy
+matplotlib
