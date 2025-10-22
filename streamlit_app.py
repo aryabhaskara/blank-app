@@ -111,7 +111,7 @@ Dampak mass imbalance:
     """)
     XGB = "images/xgb.png"
     st.image(XGB, caption="Diagram XGB", use_container_width=True)
-if selected == "Single File Prediction":
+if selected == "Prediksi (Tunggal)":
     st.title("FFT-based Feature Extraction for XGBoost")
     uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
     if uploaded_file is not None:
@@ -183,7 +183,7 @@ if selected == "Single File Prediction":
         st.success(f"❌ Kondisi Mesin Imbalance")
     else:
         st.success(f"✅ Kondisi Mesin Tidak Imbalance")        
-if selected == "Prediksi":
+if selected == "Prediksi (Ganda)":
     st.title("Prediksi Kondisi Mesin")
     st.markdown("Masukan data dalam bentuk tabular (.csv/.txt)")
     uploaded = st.file_uploader("Pilih file CSV atau TXT", type=["csv", "txt"])
