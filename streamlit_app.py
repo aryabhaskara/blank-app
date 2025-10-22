@@ -25,8 +25,8 @@ with st.sidebar:
     st.image(BRIN, caption=None, use_container_width=False)
     selected = option_menu(
         menu_title="Menu Utama",
-        options=["Beranda","Framework","Teori","Eksperimen","Prediksi","Single","Obrolan","Kontak","Lokasi"],
-        icons=["house","window","book","pencil","gear","one","chat","envelope","pin"],
+        options=["Beranda","Framework","Teori","Eksperimen","Prediksi","Single File Prediction","Obrolan","Kontak","Lokasi"],
+        icons=["house","window","book","pencil","gear","electric","chat","envelope","pin"],
         menu_icon="cast",
         default_index=0,
     )
@@ -103,7 +103,7 @@ Dampak mass imbalance:
     """)
     XGB = "images/xgb.png"
     st.image(XGB, caption="Diagram XGB", use_container_width=True)
-if selected == "Single":
+if selected == "Single File Prediction":
     st.title("FFT-based Feature Extraction for XGBoost")
     uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
     if uploaded_file is not None:
