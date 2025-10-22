@@ -26,7 +26,7 @@ with st.sidebar:
     selected = option_menu(
         menu_title="Menu Utama",
         options=["Beranda","Framework","Teori","Eksperimen","Prediksi","Single File Prediction","Obrolan","Kontak","Lokasi"],
-        icons=["house","window","book","pencil","gear","electric","chat","envelope","pin"],
+        icons=["house","window","book","pencil","gear","target","chat","envelope","pin"],
         menu_icon="cast",
         default_index=0,
     )
