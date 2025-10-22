@@ -128,7 +128,7 @@ if selected == "Single File Prediction":
 
         except Exception as e:
             print(f"⚠️ Error reading {filename}: {e}")
-        continue
+            continue
         st.write("📊 Raw Data:", df.head())
     # Convert to numeric and drop NaN
         df = df.apply(pd.to_numeric, errors='coerce').dropna()
