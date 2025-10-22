@@ -107,7 +107,28 @@ if selected == "Single File Prediction":
     st.title("FFT-based Feature Extraction for XGBoost")
     uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
     if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
+        try:
+            df = pd.read_csv(
+                filename,
+                skiprows=9,          # skip header lines (data starts at line 10)
+                header=None,         # no column names in data section
+                engine='python',     # tolerate inconsistent commas
+                sep=r',\s*',         # handle comma + optional space
+                comment='#'          # ignore comment lines if any
+            )
+
+            # Drop empty trailing column caused by extra comma at line end
+            df = df.dropna(axis=1, how='all')
+
+            # Assign consistent column names
+            df.columns = ['Time', 'X', 'Y', 'Z']
+
+            # Ensure all numeric
+            df = df.apply(pd.to_numeric, errors='coerce').dropna()
+
+        except Exception as e:
+            print(f"⚠️ Error reading {filename}: {e}")
+            continue
         st.write("📊 Raw Data:", df.head())
     # Convert to numeric and drop NaN
         df = df.apply(pd.to_numeric, errors='coerce').dropna()
