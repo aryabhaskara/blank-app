@@ -109,7 +109,7 @@ if selected == "Single File Prediction":
     if uploaded_file is not None:
         try:
             df = pd.read_csv(
-                filename,
+                uploaded_file,
                 skiprows=9,          # skip header lines (data starts at line 10)
                 header=None,         # no column names in data section
                 engine='python',     # tolerate inconsistent commas
@@ -127,11 +127,11 @@ if selected == "Single File Prediction":
             df = df.apply(pd.to_numeric, errors='coerce').dropna()
 
         except Exception as e:
-            print(f"⚠️ Error reading {filename}: {e}")
-            continue
+            st.error(f"⚠️ Error reading file: {e}")
+            st.stop()  # safely stop Streamlit execution
         st.write("📊 Raw Data:", df.head())
     # Convert to numeric and drop NaN
-        df = df.apply(pd.to_numeric, errors='coerce').dropna()
+        #df = df.apply(pd.to_numeric, errors='coerce').dropna()
         # Extract signals (assuming col1=x, col2=y, col3=z)
         t, x, y, z = df.iloc[:,0],df.iloc[:, 1].values, df.iloc[:, 2].values, df.iloc[:, 3].values
         axis_data = {
