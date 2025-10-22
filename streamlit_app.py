@@ -25,8 +25,8 @@ with st.sidebar:
     st.image(BRIN, caption=None, use_container_width=False)
     selected = option_menu(
         menu_title="Menu Utama",
-        options=["Beranda","Framework","Teori","Eksperimen","Prediksi","Single File Prediction","Obrolan","Kontak","Lokasi"],
-        icons=["house","window","book","pencil","gear","target","chat","envelope","pin"],
+        options=["Beranda","Framework","Teori","Eksperimen","Prediksi (Ganda)","Prediksi (Tunggal)","Obrolan","Kontak","Lokasi"],
+        icons=["house","window","book","pencil","bullseye","check2-circle","chat","envelope","pin"],
         menu_icon="cast",
         default_index=0,
     )
@@ -131,7 +131,6 @@ if selected == "Single File Prediction":
             st.stop()  # safely stop Streamlit execution
         st.write("📊 Raw Data:", df.head())
     # Convert to numeric and drop NaN
-        #df = df.apply(pd.to_numeric, errors='coerce').dropna()
         # Extract signals (assuming col1=x, col2=y, col3=z)
         t, x, y, z = df.iloc[:,0],df.iloc[:, 1].values, df.iloc[:, 2].values, df.iloc[:, 3].values
         axis_data = {
@@ -175,9 +174,7 @@ if selected == "Single File Prediction":
     if prediction[0]==1:
         st.success(f"❌ Kondisi Mesin Imbalance")
     else:
-        st.success(f"✅ Kondisi Mesin Tidak Imbalance")
-    #st.write(f"Sampling Frequency = {fs}")
-    #st.success(f"⚙️Kondisi Mesin = {prediction[0]}")        
+        st.success(f"✅ Kondisi Mesin Tidak Imbalance")        
 if selected == "Prediksi":
     st.title("Prediksi Kondisi Mesin")
     st.markdown("Masukan data dalam bentuk tabular (.csv/.txt)")
@@ -263,10 +260,12 @@ if selected == "Kontak":
     st.markdown("- Ade Syafrinaldy")
     st.markdown("- Bambang Muharto")
     st.markdown("- Arya Bhaskara Adiprabowo")
-    st.write("Kelompok Riset Sarana Transportasi Air- Pusat Riset Teknologi Transportasi")
+    st.write("Kelompok Riset Sarana Transportasi Air - Pusat Riset Teknologi Transportasi")
     st.markdown("- Nanda Yustina")
     st.write("PT. Daun Biru Engineering")
     st.markdown("- Herry Susanto")
+    st.markdown("- Zona Amrullah")
+    st.markdown("- Suwarjono")
 if selected == "Obrolan":
     with st.chat_message("ai",avatar=":material/robot:"):
         st.write("Halo! Ada yang bisa dibantu? 👋")
