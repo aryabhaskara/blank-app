@@ -36,7 +36,7 @@ if selected == "Beranda":
     st.markdown("""
     Selamat datang pada situs web ini. Situs web ini dibuat untuk melakukan prediksi anomali mesin kondisi massa tidak seimbang (mass imbalance) menggunakan machine learning.  
 
-    Dataset yang digunakan untuk membangun model ML ini diperoleh dari [1]. Mesin yang digunakan adalah pompa dengan merk Panasonic GP–129JXK dengan kecepatan 3000 rpm.  
+    Dataset yang digunakan untuk membangun model ML ini diperoleh dari hasil eksperimen tim RP-OREM mass imbalance. Mesin yang digunakan adalah simulator rotating equipment dengan kecepatan 600 - 2400 rpm.  
 
     Data (input) yang dibutuhkan untuk deteksi mass imbalance adalah data dari tiga akselerometer yang dipasang pada rotating equipment:  
     - Horizontal (sumbu x)  
@@ -60,13 +60,21 @@ if selected == "Beranda":
 
     Program ini diselenggarakan dalam kegiatan Rumah Program Manufaktur - Organisasi Riset Energi dan Manufaktur 2025 dan bekerjasama dengan PT. Daun Biru Engineering.
     
-    **Referensi:**  
-    [1] H. Ihsannur, B. T. Atmaja, Suyanto and D. Arifianto, “VBL-VA001: Lab-scale vibration analysis dataset”, Journal of Vibration Engineering & Technologies, no. 123456789. Zenodo, Surabaya, Agu 18, 2022. doi: 10.5281/zenodo.7006575.
-    [2] Atmaja, B.T., Ihsannur, H., Suyanto et al. Lab-Scale Vibration Analysis Dataset and Baseline Methods for Machinery Fault Diagnosis with Machine Learning. J. Vib. Eng. Technol. 12, 1991–2001 (2024). https://doi.org/10.1007/s42417-023-00959-9
     """)
 if selected == "Framework":
     FW = "images/framework.png"
     st.image(FW, caption="Framework Machine Learning", use_container_width=True)
+if selected == "Eksperimen":
+    #FW = "images/framework.png"
+    st.title("Pengambilan Data")
+    st.markdown("""Pengambilan data dilakukan di PT. Daun Biru Engineering, Depok Jawa Barat selama periode April - Desember 2025. 
+                Pengambilan data kecepatan mesin berputar dengan kondisi massa yang tidak seimbang (imbalance) dilakukan dengan kecepatan 600 – 2400 rpm. 
+                Pengambilan data dilakukan dengan kenaikan frekuensi +/- 0.4 Hertz (+/- 25 rpm) untuk mendapatkan resolusi yang memadai. Sebuah bandul dengan berat 9.5 gram dipasang pada impeller nomor 2 (tengah) 
+                untuk menciptakan kondisi imbalance di sudut 0^o. Akselerometer ditempatkan di bagian horizontal, vertical dan aksial dari mesin (x,y dan z). Gambar 2 menunjukan proses pemasangan alat untuk melaksanakan eksperimen, sedangkan Gambar 3 menunjukan perangkat sensor dan akuisisi data yang digunakan. 
+                Data yang diambil akan dijadikan bahan pelatihan model machine learning dan pengujian untuk menghasilkan model yang valid. Data diambil dengan sampling rate yang tinggi (18 kHz) untuk memastikan data berkualitas tinggi selama 11 detik dengan averaging window 3 dan parameter “FFT size 65536”. """)
+    st.title("Spesifikasi Alat dan Data")
+    st.markdown("""x""")
+    #st.image(FW, caption="Framework Machine Learning", use_container_width=True)
 if selected == "Teori":
     st.title("Teori Mass Imbalance")
     st.markdown("""
