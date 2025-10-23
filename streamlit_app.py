@@ -80,8 +80,8 @@ Akselerometer ditempatkan di bagian horizontal, vertikal, dan aksial dari mesin 
 Gambar 2 menunjukkan proses pemasangan alat untuk melaksanakan eksperimen, sedangkan Gambar 3 menunjukkan perangkat sensor dan akuisisi data yang digunakan. 
 Data yang diambil akan dijadikan bahan pelatihan model machine learning dan pengujian untuk menghasilkan model yang valid. 
 Data diambil dengan sampling rate yang tinggi (18 kHz) untuk memastikan data berkualitas tinggi selama 11 detik dengan averaging window 3 dan parameter “FFT size 65536”.
-</div>
-""", unsafe_allow_html=True)
+</div>,<br>         
+""",unsafe_allow_html=True)
     st.image(sim_depan,caption="Simulator Rotating Equipment",use_container_width=True)
     st.title("Spesifikasi Alat dan Data")
     st.markdown("Tabel 1. Spesifikasi Akselerometer (AC-102)")
