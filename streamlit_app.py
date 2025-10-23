@@ -65,7 +65,8 @@ if selected == "Framework":
     FW = "images/framework.png"
     st.image(FW, caption="Framework Machine Learning", use_container_width=True)
 if selected == "Eksperimen":
-    #FW = "images/framework.png"
+    sensor = "images/sensor.jpeg"
+    daq = "images/daq.jpeg"
     st.title("Pengambilan Data")
     st.markdown("""Pengambilan data dilakukan di PT. Daun Biru Engineering, Depok Jawa Barat selama periode April - Desember 2025. 
                 Pengambilan data kecepatan mesin berputar dengan kondisi massa yang tidak seimbang (imbalance) dilakukan dengan kecepatan 600 – 2400 rpm. 
@@ -74,7 +75,8 @@ if selected == "Eksperimen":
                 Data yang diambil akan dijadikan bahan pelatihan model machine learning dan pengujian untuk menghasilkan model yang valid. Data diambil dengan sampling rate yang tinggi (18 kHz) untuk memastikan data berkualitas tinggi selama 11 detik dengan averaging window 3 dan parameter “FFT size 65536”. """)
     st.title("Spesifikasi Alat dan Data")
     st.markdown("""x""")
-    #st.image(FW, caption="Framework Machine Learning", use_container_width=True)
+    st.image(sensor, caption="Akselerometer (AC-102)", use_container_width=True)
+    st.image(daq, caption="Sistem Akuisisi Data (DT9837)", use_container_width=True)
 if selected == "Teori":
     st.title("Teori Mass Imbalance")
     st.markdown("""
