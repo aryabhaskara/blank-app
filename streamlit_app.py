@@ -61,7 +61,7 @@ if selected == "Beranda":
     Program ini diselenggarakan dalam kegiatan Rumah Program Manufaktur - Organisasi Riset Energi dan Manufaktur 2025 dan bekerjasama dengan PT. Daun Biru Engineering.
     
     """)
-if selected == "Framework":
+if selected == "Kerangka Kerja":
     FW = "images/framework.png"
     st.image(FW, caption="Framework Machine Learning", use_container_width=True)
 if selected == "Eksperimen":
