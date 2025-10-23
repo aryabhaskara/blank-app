@@ -74,8 +74,43 @@ if selected == "Eksperimen":
                 untuk menciptakan kondisi imbalance di sudut 0^o. Akselerometer ditempatkan di bagian horizontal, vertical dan aksial dari mesin (x,y dan z). Gambar 2 menunjukan proses pemasangan alat untuk melaksanakan eksperimen, sedangkan Gambar 3 menunjukan perangkat sensor dan akuisisi data yang digunakan. 
                 Data yang diambil akan dijadikan bahan pelatihan model machine learning dan pengujian untuk menghasilkan model yang valid. Data diambil dengan sampling rate yang tinggi (18 kHz) untuk memastikan data berkualitas tinggi selama 11 detik dengan averaging window 3 dan parameter “FFT size 65536”. """)
     st.title("Spesifikasi Alat dan Data")
-    st.markdown("""x""")
+    st.markdown("Tabel 1. Spesifikasi Akselerometer (AC-102)")
+    spek_sensor = {
+        "Specifications": [
+            "Part Number",
+            "Sensitivity (±10%)",
+            "Frequency Response (±3dB)",
+            "Dynamic Range",
+        ],
+        "Standard": [
+            "AC102",
+            "100 mV/g",
+            "30 – 810,000 CPM",
+            "±80 g, peak, Vsource ≥ 22V, 12V Bias",  # empty cell for last row
+        ]
+    }
+    spek_sensor = pd.DataFrame(spek_sensor)
+    st.table(spek_sensor)
     st.image(sensor, caption="Akselerometer (AC-102)", use_container_width=True)
+    st.markdown("Tabel 2. Spesifikasi Sistem Akusisi Data (DT9837)")
+    spek_daq = {
+        "Part No.": [
+            "Channel",
+            "Resolution",
+            "High-pass filter",
+            "Max. sampling rate",
+            "Current source",
+        ],
+        "DT9837": [
+            "4-channel",
+            "24-bit",
+            "0.5 Hertz",
+            "<52.7 kHz",
+            "4 mA",  # empty cell for last row
+        ]
+    }
+    spek_daq = pd.DataFrame(spek_daq)
+    st.table(spek_daq)
     st.image(daq, caption="Sistem Akuisisi Data (DT9837)", use_container_width=True)
 if selected == "Teori":
     st.title("Teori Mass Imbalance")
