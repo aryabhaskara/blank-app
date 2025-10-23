@@ -159,8 +159,8 @@ Dampak mass imbalance:
     XGB = "images/xgb.png"
     st.image(XGB, caption="Diagram XGB", use_container_width=True)
 if selected == "Prediksi (Tunggal)":
-    st.title("FFT-based Feature Extraction for XGBoost")
-    uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
+    st.title("Prediksi Kondisi Mesin (1 file)")
+    uploaded_file = st.file_uploader("Unggah file .csv", type=["csv"])
     if uploaded_file is not None:
         try:
             df = pd.read_csv(
@@ -198,7 +198,7 @@ if selected == "Prediksi (Tunggal)":
                 for axis in ['x','y','z']:
                     features_all[f'{f}_{axis}'] = extract_features(axis_data[axis])[f]
     # === Show FFT plots ===
-    st.subheader("🔊 FFT Spectrum")
+    st.subheader("🔊 Spektrum FFT")
     fig, ax = plt.subplots(3, 1, figsize=(10, 8))
     colors = ["red", "green", "blue"]  # one color per axis
     for idx, (signal, label) in enumerate([(x, "X"), (y, "Y"), (z, "Z")]):
@@ -211,7 +211,7 @@ if selected == "Prediksi (Tunggal)":
     plt.tight_layout()
     st.pyplot(fig)
     # === Show STFT plots ===
-    st.subheader("📡 STFT Spectrogram")
+    st.subheader("📡 Spektrogram STFT")
     fig, ax = plt.subplots(3, 1, figsize=(10, 8))
     for idx, (signal, label) in enumerate([(x,"X"), (y,"Y"), (z,"Z")]):
         f, t, Sxx = spectrogram(signal, fs, nperseg=256)
