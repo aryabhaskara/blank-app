@@ -67,12 +67,22 @@ if selected == "Framework":
 if selected == "Eksperimen":
     sensor = "images/sensor.jpeg"
     daq = "images/daq.jpeg"
+    sim_atas = "images/simulator_atas.jpeg"
+    sim_depan = "images/simulator.jpeg"
     st.title("Pengambilan Data")
-    st.markdown("""Pengambilan data dilakukan di PT. Daun Biru Engineering, Depok Jawa Barat selama periode April - Desember 2025. 
-                Pengambilan data kecepatan mesin berputar dengan kondisi massa yang tidak seimbang (imbalance) dilakukan dengan kecepatan 600 – 2400 rpm. 
-                Pengambilan data dilakukan dengan kenaikan frekuensi +/- 0.4 Hertz (+/- 25 rpm) untuk mendapatkan resolusi yang memadai. Sebuah bandul dengan berat 9.5 gram dipasang pada impeller nomor 2 (tengah) 
-                untuk menciptakan kondisi imbalance di sudut 0^o. Akselerometer ditempatkan di bagian horizontal, vertical dan aksial dari mesin (x,y dan z). Gambar 2 menunjukan proses pemasangan alat untuk melaksanakan eksperimen, sedangkan Gambar 3 menunjukan perangkat sensor dan akuisisi data yang digunakan. 
-                Data yang diambil akan dijadikan bahan pelatihan model machine learning dan pengujian untuk menghasilkan model yang valid. Data diambil dengan sampling rate yang tinggi (18 kHz) untuk memastikan data berkualitas tinggi selama 11 detik dengan averaging window 3 dan parameter “FFT size 65536”. """)
+    st.markdown("""
+<div style='text-align: justify; text-justify: inter-word;'>
+Pengambilan data dilakukan di PT. Daun Biru Engineering, Depok Jawa Barat selama periode April - Desember 2025. 
+Pengambilan data kecepatan mesin berputar dengan kondisi massa yang tidak seimbang (imbalance) dilakukan dengan kecepatan 600 – 2400 rpm. 
+Pengambilan data dilakukan dengan kenaikan frekuensi ±0.4 Hertz (±25 rpm) untuk mendapatkan resolusi yang memadai. 
+Sebuah bandul dengan berat 9.5 gram dipasang pada impeller nomor 2 (tengah) untuk menciptakan kondisi imbalance di sudut 0°.
+Akselerometer ditempatkan di bagian horizontal, vertikal, dan aksial dari mesin (x, y, dan z). 
+Gambar 2 menunjukkan proses pemasangan alat untuk melaksanakan eksperimen, sedangkan Gambar 3 menunjukkan perangkat sensor dan akuisisi data yang digunakan. 
+Data yang diambil akan dijadikan bahan pelatihan model machine learning dan pengujian untuk menghasilkan model yang valid. 
+Data diambil dengan sampling rate yang tinggi (18 kHz) untuk memastikan data berkualitas tinggi selama 11 detik dengan averaging window 3 dan parameter “FFT size 65536”.
+</div>
+""", unsafe_allow_html=True)
+    st.image(sim_depan,caption="Simulator Rotating Equipment",use_container_width=True)
     st.title("Spesifikasi Alat dan Data")
     st.markdown("Tabel 1. Spesifikasi Akselerometer (AC-102)")
     spek_sensor = {
