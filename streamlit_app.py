@@ -25,8 +25,8 @@ with st.sidebar:
     st.image(BRIN, caption=None, use_container_width=False)
     selected = option_menu(
         menu_title="Menu Utama",
-        options=["Beranda","Framework","Teori","Eksperimen","Prediksi (Ganda)","Prediksi (Tunggal)","Obrolan","Kontak","Lokasi"],
-        icons=["house","window","book","pencil","bullseye","check2-circle","chat","envelope","pin"],
+        options=["Beranda","Kerangka Kerja","Teori","Eksperimen","Algoritma","Spesifikasi ML","Prediksi (Ganda)","Prediksi (Tunggal)","Obrolan","Kontak","Lokasi"],
+        icons=["house","window","book","pencil","boxes","cpu","bullseye","check2-circle","chat","envelope","pin"],
         menu_icon="cast",
         default_index=0,
     )
