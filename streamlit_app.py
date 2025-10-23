@@ -63,8 +63,13 @@ if selected == "Beranda":
     """)
 if selected == "Algoritma":
     st.title("Algoritma Program Utama")
+    st.markdown("""
+    Data dari 3 akselerometer (sumbu x, y dan z) akan diproses dengan metode Fast Fourier Transformation (FFT).
+    Keluaran dari FFT tersebut akan digunakan untuk menghitung 
+    """)
 if selected == "Spesifikasi Program ML":
     st.title("Spesifikasi program machine learning")
+    st.markdown("Algoritma ML yang digunakan dalam melakukan prediksi dan performanya adalah sebagai berikut :")
 if selected == "Kerangka Kerja":
     FW = "images/framework.png"
     st.image(FW, caption="Framework Machine Learning", use_container_width=True)
