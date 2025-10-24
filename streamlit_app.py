@@ -66,12 +66,59 @@ if selected == "Algoritma":
     st.title("Algoritma Program Utama")
     st.markdown("""
     Data dari 3 akselerometer (sumbu x, y dan z) akan diproses dengan metode Fast Fourier Transformation (FFT).
-    Keluaran dari FFT tersebut akan digunakan untuk menghitung 
+    Keluaran dari FFT tersebut akan digunakan untuk menghitung Mean, Standard Deviation, Shape Factor, Root Mean Square, Impulse Factor, Peak to Peak, Kurtosis, Crest Factor, Skewness
     """)
     st.image(FC,caption="Algoritma Deteksi Mass Imbalance",use_container_width=True)
-if selected == "Spesifikasi Program ML":
+if selected == "Spesifikasi ML":
     st.title("Spesifikasi program machine learning")
     st.markdown("Algoritma ML yang digunakan dalam melakukan prediksi dan performanya adalah sebagai berikut :")
+    st.markdown("Tabel 1. Algoritma ML")
+    algoML = {
+        "Kriteria": [
+            "Akurasi",
+            "Presisi",
+            "Recall",
+            "F1 Score",
+            "ROC-AUC",
+        ],
+        "Test Data (XGB)": [
+            "0.947",
+            "1",
+            "0.888",
+            "0.941",
+            "0.944",
+        ],
+        "Test Data (ANN)": [
+            "0.842",
+            "0.875",
+            "0.777",
+            "0.823", 
+            "0.955", # empty cell for last row
+        ],
+        "Test Data (KNN)": [
+            "0.895",
+            "1",
+            "0.778",
+            "0.875",
+            "0.955",
+        ],
+        "Test Data (RFC)": [
+            "0.842",
+            "0.8",
+            "0.888",
+            "0.842", 
+            "0.922", # empty cell for last row
+        ],
+        "Test Data (GBC)": [
+            "0.947",
+            "1",
+            "0.888",
+            "0.941",
+            "0.944",
+        ]
+    }
+    algoML = pd.DataFrame(algoML)
+    st.table(algoML)
 if selected == "Kerangka Kerja":
     FW = "images/framework.png"
     st.image(FW, caption="Framework Machine Learning", use_container_width=True)
