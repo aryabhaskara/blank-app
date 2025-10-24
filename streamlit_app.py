@@ -62,11 +62,13 @@ if selected == "Beranda":
     
     """)
 if selected == "Algoritma":
+    FC = "images/flowchart.png"
     st.title("Algoritma Program Utama")
     st.markdown("""
     Data dari 3 akselerometer (sumbu x, y dan z) akan diproses dengan metode Fast Fourier Transformation (FFT).
     Keluaran dari FFT tersebut akan digunakan untuk menghitung 
     """)
+    st.image(FC,caption="Algoritma Deteksi Mass Imbalance",use_container_width=True)
 if selected == "Spesifikasi Program ML":
     st.title("Spesifikasi program machine learning")
     st.markdown("Algoritma ML yang digunakan dalam melakukan prediksi dan performanya adalah sebagai berikut :")
